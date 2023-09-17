@@ -38,10 +38,11 @@ const PORT = process.env.PORT || 8080;
 // static file
 const clientDistPath = path.join(new URL(import.meta.url).pathname, "./client/dist");
 app.use(express.static(clientDistPath));
-console.log("clientDistPath: ", clientDistPath);
+
 // app.use(express.static(path.join(import.meta.url, "/client/dist")));
 
 app.use("*", (req, res) => {
+    console.log("clientDistPath: ", clientDistPath);
     res.sendFile(path.join(clientDistPath, "index.html"));
 });
 
