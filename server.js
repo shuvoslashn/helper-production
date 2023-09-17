@@ -28,9 +28,9 @@ app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/service", serviceRoutes);
 
 // check api
-app.get("/", (req, res) => {
-    res.json({ message: "welcome to app" });
-});
+// app.get("/", (req, res) => {
+//     res.json({ message: "welcome to app" });
+// });
 
 // port
 const PORT = process.env.PORT || 8080;
