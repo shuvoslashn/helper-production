@@ -29,7 +29,7 @@ app.use("/api/v1/service", serviceRoutes);
 
 // check api
 app.get("/", (req, res) => {
-    res.json({ message: "welcome to ecommerce app" });
+    res.json({ message: "welcome to app" });
 });
 
 // port
@@ -38,7 +38,7 @@ const PORT = process.env.PORT || 8080;
 // static file
 app.use(express.static(path.join(import.meta.url, `./client/dist`)));
 
-app.get("*", (req, res) => {
+app.use("*", (req, res) => {
     res.sendFile(import.meta.url, "./client/dist/index.html");
 });
 
