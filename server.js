@@ -7,6 +7,10 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import serviceRoutes from "./routes/serviceRoutes.js";
 import cors from "cors";
 import path from "path";
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // configure
 dotenv.config();
@@ -36,7 +40,7 @@ app.use("/api/v1/service", serviceRoutes);
 const PORT = process.env.PORT || 8080;
 
 // static file
-const clientDistPath = path.join(new URL(import.meta.url).pathname, "./client/dist");
+const clientDistPath = path.join(__dirname, "./client/dist");
 app.use(express.static(clientDistPath));
 
 // app.use(express.static(path.join(import.meta.url, "/client/dist")));
