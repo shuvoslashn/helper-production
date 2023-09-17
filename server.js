@@ -7,10 +7,10 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import serviceRoutes from "./routes/serviceRoutes.js";
 import cors from "cors";
 import path from "path";
-import { fileURLToPath } from 'url';
+// import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 // configure
 dotenv.config();
@@ -40,15 +40,15 @@ app.use("/api/v1/service", serviceRoutes);
 const PORT = process.env.PORT || 8080;
 
 // static file
-const clientDistPath = path.join(__dirname, "./client/dist");
-app.use(express.static(clientDistPath));
+// const clientDistPath = path.join(__dirname, "./client/dist");
+// app.use(express.static(clientDistPath));
 
 // app.use(express.static(path.join(import.meta.url, "/client/dist")));
 
-app.use("*", (req, res) => {
-    console.log("clientDistPath: ", clientDistPath);
-    res.sendFile(path.join(clientDistPath, "index.html"));
-});
+// app.use("*", (req, res) => {
+//     console.log("clientDistPath: ", clientDistPath);
+//     res.sendFile(path.join(clientDistPath, "index.html"));
+// });
 
 // server listening
 app.listen(PORT, () => {
