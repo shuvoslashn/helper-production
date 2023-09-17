@@ -36,10 +36,12 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 8080;
 
 // static file
-app.use(express.static(path.join(import.meta.url, "/client/dist")));
+const clientDistPath = path.join(new URL(import.meta.url).pathname, "./client/dist");
+app.use(express.static(clientDistPath));
+// app.use(express.static(path.join(import.meta.url, "/client/dist")));
 
 app.use("*", (req, res) => {
-    res.sendFile(import.meta.url, "/client/dist/index.html");
+    res.sendFile(path.join(clientDistPath, "index.html"));
 });
 
 // server listening
